@@ -31,8 +31,5 @@ object WordCount extends App {
   FileOutputFormat.setOutputPath(job, new Path("output"))
 
   // Run the job and wait until it succeeds or fails
-  val isSuccess = job.waitForCompletion(true)
-
-  // Exit with failure signal (1) if the job fails
-  System.exit(if (isSuccess) 0 else 1)
+  job.waitForCompletion(true)
 }
