@@ -12,6 +12,9 @@ class WordCountIntegrationSpec
   override def afterEach() = {
     // Make sure the integration tests leave no files behind
     // by recursively deleting the output folder after each test run.
+    // IMPORTANT: integration tests in a real life project should
+    // not write files under the project root folder, they should use
+    // temporary folders provided by the operating system (eg. under /tmp).
     val fs = FileSystem.get(new Configuration())
     fs.delete(new Path("output"), true)
   }
