@@ -13,7 +13,7 @@ class TokenizerMapper
   // A mapper has to inherit from the Mapper base class.
   // The type parameters are input key, input value, output key
   // output value.
-  extends Mapper[IntWritable, Text, Text, IntWritable] {
+  extends Mapper[LongWritable, Text, Text, IntWritable] {
 
   /**
     * The only public method to implement is map().
@@ -21,9 +21,9 @@ class TokenizerMapper
     * @param key Ignored
     * @param value Text from the input files
     */
-  override def map(key: IntWritable,
+  override def map(key: LongWritable,
                    value: Text,
-                   context: Mapper[IntWritable, Text, Text, IntWritable]#Context) {
+                   context: Mapper[LongWritable, Text, Text, IntWritable]#Context) {
 
     // Use split() as a rather naive way of turning text into words
     // Note: value.toString is necessary to unwrap Hadoop's Text class
