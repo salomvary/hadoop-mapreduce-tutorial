@@ -9,16 +9,6 @@ class WordCountIntegrationSpec
     with Matchers
     with BeforeAndAfterEach {
 
-  override def afterEach() = {
-    // Make sure the integration tests leave no files behind
-    // by recursively deleting the output folder after each test run.
-    // IMPORTANT: integration tests in a real life project should
-    // not write files under the project root folder, they should use
-    // temporary folders provided by the operating system (eg. under /tmp).
-    val fs = FileSystem.get(new Configuration())
-    fs.delete(new Path("output"), true)
-  }
-
   "WordCount" should "write out word counts to output folder" in {
     // Run the MapReduce job locally
     WordCount.main(Array())
@@ -36,4 +26,13 @@ class WordCountIntegrationSpec
          |""".stripMargin)
   }
 
+  override def afterEach() = {
+    // Make sure the integration tests leave no files behind
+    // by recursively deleting the output folder after each test run.
+    // IMPORTANT: integration tests in a real life project should
+    // not write files under the project root folder, they should use
+    // temporary folders provided by the operating system (eg. under /tmp).
+    val fs = FileSystem.get(new Configuration())
+    fs.delete(new Path("output"), true)
+  }
 }
