@@ -1,4 +1,4 @@
-# Hadoop MapReduce Tutorial
+# Hadoop MapReduce Tutorial [![Build Status](https://travis-ci.org/salomvary/hadoop-mapreduce-tutorial.svg?branch=master)](https://travis-ci.org/salomvary/hadoop-mapreduce-tutorial)
 
 This repository contains heavily commented example code for my [Getting Started
 with Hadoop and MapReduce the Test Driven
